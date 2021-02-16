@@ -1,0 +1,32 @@
+#ifndef MENU_H
+#define MENU_H
+
+#include <string>
+#include <iostream>
+#include "pizza.h"
+
+using namespace std;
+
+class menu{
+  private:
+    int num_pizzas;
+    pizza* pizzas;
+  public:
+    menu();
+    menu(int);
+    ~menu();
+
+    void display_menu();
+    menu search_cost(int);
+    menu search_ingred_exclude(string*,int);
+    void add_to_menu(pizza);
+    void load_file_add();
+    void load_file_remove();
+    void add();
+    void remove_from(int);
+    void get_order(int&,int&,char&);
+    void get_info(string&,int&,int&);
+    void load_file();
+    void upload_order(string*,int);
+};
+#endif

@@ -1,0 +1,28 @@
+#include <iostream>
+#include <fstream>
+#include <string.h>
+#include "error.h"
+
+using namespace std;
+
+void welcome(int argc,char** argv){
+  cout << "      Welcome!" << endl;
+  cout << "---------------------" << endl;
+  cout << "| Pizza bytes menu  |" << endl;
+  cout << "---------------------" << endl;
+  cout << endl;
+}
+
+bool prompt(int argc,char** argv){
+  char in;
+  cout << "Are you a customer or employee?" << endl;
+  cout << "Press 'C' for customer or 'E' for employee: ";
+  cin >> in; 
+  
+  if(in == 'E')
+    return true;
+  else if(in == 'C')
+    return false;
+  else
+    error(argc,argv);
+}

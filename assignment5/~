@@ -1,0 +1,57 @@
+#include <iostream>
+#include <string>
+#include <cstdlib>
+#include "linked_list.h"
+
+using namespace std;
+
+bool check_int(string check);
+
+int main(){
+
+  int error = 0;
+  int val = 0;
+  string input;
+  char choi;
+
+  linked_list list;
+
+  while(true){
+    while(true){
+    cout << "enter a number: ";
+    cin >> input;
+      if(check_int(input) == true)
+        val = atoi(input.c_str());
+        break;
+    }
+    list.add(val);
+    while(true){
+      cout << "would you like to enter another number? (y or n): ";
+      cin >> choi;
+      if((choi == 'y') || (choi == 'n') || (choi == 'Y') || (choi == 'N'))
+        break;
+    }
+    if((choi == 'n') || (choi == 'N')) 
+      break;
+  }
+  
+  cout << "the old length is " << list.get_length() << endl;
+
+  cout << "the new length " << list.push_front(100) << endl;;  
+
+  list.insert(0,0);
+  list.sort_descending();
+  list.print();
+  list.clear();
+  cout << list.get_length() << endl;
+}
+
+bool check_int(string check){
+  int checked = 0;
+  for(int i = 0;i < check.length();i++){
+    if(isalpha(check[i]))
+      return false;
+  }
+  return true;
+}
+
